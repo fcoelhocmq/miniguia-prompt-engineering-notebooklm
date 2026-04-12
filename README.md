@@ -36,7 +36,11 @@ Esta seção documenta as perguntas estratégicas, variações de prompts testad
 **Prompt inicial (exploração ampla):**
 Quais são os principais conceitos abordados nas fontes que eu carreguei? 
 Faça um resumo em tópicos hierárquicos.
-**Resultado:** O NotebookLM gerou um mapa mental textual cobrindo: tipos de prompting, técnicas de raciocínio, limitações dos LLMs e casos de uso práticos. Porém, as fontes foram misturadas sem deixar claro qual conceito vinha de qual documento.
+
+**Resultado:** O NotebookLM 
+As fontes fornecidas exploram a Engenharia de Prompt como uma disciplina essencial para o desenvolvimento, otimização e compreensão das capacidades dos Modelos de Linguagem Grandes (LLMs).
+Ele fez um resumo dos principais conceitos abordados, organizados em tópicos hierárquicos:
+
 
 **⚠️ Dificuldade encontrada:** A resposta era genérica demais. Não havia distinção clara entre os documentos.
 
