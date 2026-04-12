@@ -53,9 +53,16 @@ Esta seção documenta as perguntas estratégicas testadas no NotebookLM, os pro
 O que é engenharia de prompts?
 ```
 
-**Resultado:** A resposta foi genérica e superficial, sem aprofundamento nas fontes carregadas. A IA trouxe uma definição padrão sem citar os materiais do caderno.
+**Resultado real obtido:**
+> *"A engenharia de prompts (EP) pode ser definida como o campo de estudo voltado a aprender como falar com uma inteligência artificial para conseguir o que se deseja. Trata-se de uma disciplina relativamente nova que busca desenvolver e otimizar prompts para utilizar modelos de linguagem (LMs) de maneira eficiente em diversas aplicações e tópicos de pesquisa."*
+> 
+> A resposta detalhou quatro aspectos: Interação e Desenvolvimento, Melhoria de Desempenho, Segurança e Confiabilidade, e Prática Profissional. Também mencionou técnicas como Role Prompting e Chain-of-Thought.
 
-**⚠️ Dificuldade encontrada:** Prompts curtos e vagos fazem o NotebookLM responder de forma genérica, sem aproveitar o conteúdo das fontes adicionadas.
+**🔄 Revisão da hipótese inicial:** Ao contrário do que eu esperava, o NotebookLM **aproveitou bem as fontes** mesmo com um prompt curto, entregando uma resposta estruturada e embasada. Isso mostra que o NotebookLM tem um comportamento diferente de outros LLMs: como as fontes estão fixadas no caderno, ele as consulta por padrão, mesmo sem instrução explícita.
+
+**⚠️ Limitação real observada:** A resposta, embora correta e bem estruturada, **não indicou de qual fonte específica** cada trecho foi extraído. Para fins acadêmicos ou de estudo aprofundado, isso pode ser insuficiente. A solução é refinar o prompt pedindo citações explícitas — o que foi testado na versão v2 abaixo.
+
+**💡 Aprendizado real:** Prompts simples no NotebookLM já geram respostas razoáveis. O refinamento do prompt não é sobre "forçar a IA a usar as fontes", mas sobre **controlar o formato, a profundidade e a rastreabilidade das referências**.
 
 ---
 
@@ -67,10 +74,24 @@ com exemplos práticos do dia a dia e destaque por que essa habilidade é
 importante no mercado de trabalho atual.
 ```
 
-**✅ Resultado obtido:**
-A IA utilizou as fontes carregadas para montar uma explicação em camadas: partiu de uma analogia (o prompt como "instrução para um assistente humano"), contextualizou com o mercado de trabalho e citou trechos do Prompt Engineering Guide e do LearnPrompting. A resposta foi muito mais rica e referenciada.
+**✅ Resultado real obtido:**
+A IA entregou uma explicação em camadas progressivas de complexidade:
 
-**💡 Aprendizado:** Especificar o **público-alvo**, o **tom desejado** e o **objetivo final** transforma completamente a qualidade da resposta.
+> *"Imagine que a inteligência artificial (IA) é um assistente extremamente inteligente e capaz, mas que não consegue ler sua mente. Para que ele entregue um bom resultado, você precisa dar as instruções corretas."*
+
+A resposta incluiu **4 exemplos práticos do cotidiano** (e-mails, resumos de textos, estudo e criação de imagens) e **4 razões de mercado** organizadas numericamente: aumento de eficiência, melhores resultados, entendimento da tecnologia e resolução de problemas complexos. Encerrou com uma metáfora de alto impacto: *"dominar a engenharia de prompts é como aprender um novo idioma"*.
+
+**🔄 Comparação direta: v1 vs v2**
+
+| Critério | v1 — Prompt simples | v2 — Prompt refinado |
+|----------|--------------------|--------------------|
+| Tom | Técnico e formal | Acessível para iniciantes |
+| Exemplos | Mencionados superficialmente | 4 exemplos concretos do dia a dia |
+| Estrutura | Lista de aspectos técnicos | Narrativa com analogia + listas |
+| Apelo ao mercado | Citado genericamente | 4 razões práticas e numeradas |
+| Memorabilidade | Baixa | Alta (metáfora do "novo idioma") |
+
+**💡 Aprendizado confirmado:** Especificar o **público-alvo** ("alguém que nunca teve contato"), o **tom desejado** ("linguagem simples") e o **objetivo final** ("exemplos do dia a dia + importância no mercado") transformou a resposta de um verbete técnico em um texto que qualquer pessoa consegue ler e reter. O mesmo conteúdo das fontes, extraído de formas completamente diferentes.
 
 ---
 
@@ -85,10 +106,25 @@ em ordem de complexidade, do mais simples ao mais avançado. Para cada técnica,
 forneça: nome, descrição em 2 linhas e um exemplo de uso prático.
 ```
 
-**✅ Resultado obtido:**
-O NotebookLM gerou uma tabela estruturada com 6 técnicas (Zero-shot, Few-shot, Chain-of-Thought, Role Prompting, Tree of Thought e ReAct), com descrições e exemplos extraídos diretamente das fontes, incluindo citações. Excelente para usar como material de revisão.
+**✅ Resultado real obtido:**
+O NotebookLM gerou **6 técnicas em ordem crescente de complexidade**, com descrição e exemplo prático para cada uma:
 
-**⚠️ Dificuldade encontrada:** Na primeira tentativa, a IA misturou técnicas de prompt com conceitos de fine-tuning. Foi necessário adicionar ao prompt: *"considere apenas técnicas de prompting em tempo de inferência, sem retreinamento do modelo"* para delimitar o escopo.
+| # | Técnica | Nível |
+|---|---------|-------|
+| 1 | Zero-shot Prompting | Básico |
+| 2 | Role Prompting | Básico-Intermediário |
+| 3 | Few-shot Prompting | Intermediário |
+| 4 | Chain-of-Thought | Intermediário |
+| 5 | Prompt Chaining | Avançado |
+| 6 | RAG (Retrieval Augmented Generation) | Avançado |
+
+Destaque para o exemplo de **Prompt Chaining** gerado: primeiro extrair pontos-chave de um relatório, depois usar esse output para redigir um e-mail à diretoria — mostrando na prática como encadear prompts em fluxos reais de trabalho.
+
+**🔄 Diferença em relação ao esperado:** A lista não incluiu *Tree of Thought* nem *ReAct*. Em vez disso, o NotebookLM trouxe **RAG**, mais aplicado e relevante para contextos profissionais — mas que tecnicamente não é uma técnica de prompting puro, e sim uma arquitetura de sistema. O modelo não fez essa distinção por conta própria.
+
+**⚠️ Cicatriz registrada:** Para evitar essa mistura em contextos acadêmicos, seria necessário refinar o prompt com: *"considere apenas técnicas aplicadas diretamente no prompt, sem alterações de arquitetura ou retreinamento do modelo"*.
+
+**💡 Aprendizado:** Pedir ordenação por complexidade ("do mais simples ao mais avançado") é uma estratégia poderosa — força o modelo a organizar o conteúdo de forma pedagogicamente útil, ideal para quem está aprendendo progressivamente.
 
 ---
 
@@ -103,10 +139,26 @@ das minhas fontes. Depois, me dê um exemplo comparativo: primeiro resolvendo
 um problema SEM CoT e depois COM CoT, para eu visualizar a diferença.
 ```
 
-**✅ Resultado obtido:**
-A IA citou o paper do Google Brain (Wei et al., 2022) e construiu um exemplo comparativo claro com um problema de raciocínio matemático simples. A diferença de qualidade entre as respostas com e sem CoT ficou evidente.
+**✅ Resultado real obtido:**
+O NotebookLM citou diretamente o paper de **Jason Wei et al.** e explicou que o CoT:
 
-**💡 Aprendizado:** Pedir exemplos **comparativos** (com X vs. sem X) é uma das estratégias mais poderosas para consolidar conceitos novos.
+> *"explora a capacidade dos modelos de linguagem de gerar uma série de etapas intermediárias de raciocínio antes de chegar a uma resposta final"*
+
+Dois pontos técnicos importantes foram destacados pelas fontes: (1) o CoT **surge naturalmente com o aumento do tamanho do modelo** — modelos menores não se beneficiam da técnica; (2) pode ser ativado apenas adicionando *"Pense passo a passo"* ao final do prompt (técnica chamada de **Zero-shot CoT**).
+
+**Exemplo comparativo gerado — mesmo problema, dois formatos:**
+
+| | Sem CoT | Com CoT |
+|--|---------|---------|
+| **Prompt** | "João tem 5 maçãs, compra 2 sacos com 6 cada. Total?" | Mesma pergunta + *"Pense passo a passo."* |
+| **Resposta** | "João ficou com 17 maçãs." | Etapa 1 → 2 → 3 → resposta final: 17 |
+| **Risco** | Em problemas complexos, a IA pode "alucicar" o resultado | Cada etapa pode ser verificada individualmente |
+
+A resposta deixou claro que **o resultado numérico foi idêntico** nos dois casos (17 maçãs) — mas o CoT adiciona **rastreabilidade e verificabilidade**, o que é especialmente valioso para evitar alucinações em problemas mais complexos.
+
+**⚠️ Nuance registrada:** Para problemas simples, o CoT não muda o resultado — apenas o caminho. O real ganho aparece em cálculos encadeados, lógica simbólica e problemas de múltiplas etapas onde a IA sem CoT tende a "pular" partes cruciais.
+
+**💡 Aprendizado confirmado:** Pedir exemplos **comparativos** (sem X vs. com X) é uma das estratégias mais eficazes para consolidar conceitos novos — você vê a diferença na prática, não apenas na teoria. A simples adição de *"Pense passo a passo"* ao final de um prompt já ativa o comportamento de CoT.
 
 ---
 
@@ -120,7 +172,14 @@ uma definição curta (máximo 3 linhas) em português, adequada para iniciantes
 Organize em ordem alfabética.
 ```
 
-**✅ Resultado:** Gerou o glossário completo com citações das fontes. Usado diretamente na seção de Miniguia abaixo.
+**✅ Resultado real obtido:**
+O NotebookLM gerou os 15 termos em ordem alfabética, todos em português, com linguagem acessível para iniciantes. O glossário cobriu não apenas técnicas de prompting, mas também **conceitos de segurança** que não foram explicitamente solicitados — como Adversarial Prompting, Prompt Injection, Jailbreaking e Prompt Leaking.
+
+**🔄 Surpresa positiva:** A IA expandiu o escopo de forma inteligente. Sem pedir, ela identificou que segurança em prompts é um tema relevante nas fontes e o incluiu no glossário. Isso enriqueceu o material de estudo.
+
+**⚠️ Ponto de atenção:** 4 dos 15 termos são sobre ataques e vulnerabilidades (Adversarial Prompting, Prompt Injection, Jailbreaking, Prompt Leaking). Para um glossário puramente técnico de uso profissional, pode ser necessário separar em duas seções: *Técnicas* e *Segurança*. Refinamento sugerido: adicionar ao prompt *"separe os termos em categorias: Técnicas de Prompting e Segurança/Ataques"*.
+
+**💡 Aprendizado:** Pedir organização em ordem alfabética + limite de linhas por definição é uma combinação eficaz para gerar materiais de referência rápida. O glossário gerado está diretamente aproveitado na seção do Miniguia abaixo.
 
 ---
 
@@ -128,7 +187,7 @@ Organize em ordem alfabética.
 
 **Experimento:** Utilizei a funcionalidade **"Audio Overview"** do NotebookLM para gerar um podcast de revisão sobre o conteúdo do caderno.
 
-**Resultado:** O podcast de ~8 minutos cobriu os principais conceitos de forma conversacional entre dois apresentadores simulados. Excelente para revisar o conteúdo enquanto se faz outra atividade.
+**Resultado:** O podcast de ~21 minutos cobriu os principais conceitos de forma conversacional entre dois apresentadores simulados. Excelente para revisar o conteúdo enquanto se faz outra atividade.
 
 **⚠️ Limitação observada:** O áudio gerado está em inglês por padrão. Para contornar, instrua o NotebookLM em português no campo de customização do podcast antes de gerar.
 
@@ -209,23 +268,32 @@ Técnica avançada onde o modelo explora múltiplos caminhos de raciocínio simu
 
 ### 📘 Glossário de Conceitos-Chave
 
+> ✅ *Gerado diretamente pelo NotebookLM na Sessão 4, a partir das fontes do caderno. 15 termos em ordem alfabética.*
+
+#### 🔵 Técnicas e Conceitos Fundamentais
+
 | Termo | Definição |
 |-------|-----------|
-| **Prompt** | Instrução ou entrada de texto enviada a um modelo de linguagem para gerar uma resposta. |
-| **LLM (Large Language Model)** | Modelo de linguagem de grande escala treinado em enormes volumes de texto. Ex: GPT-4, Claude, Gemini. |
-| **Token** | Unidade básica de processamento de texto em LLMs. Pode ser uma palavra, parte de palavra ou pontuação. |
-| **Temperatura** | Parâmetro que controla a criatividade/aleatoriedade das respostas. Valores altos = mais criativo; valores baixos = mais determinístico. |
-| **Zero-shot** | Técnica onde o modelo realiza uma tarefa sem receber exemplos prévios. |
-| **Few-shot** | Técnica onde alguns exemplos são fornecidos no prompt para guiar o modelo. |
-| **Chain-of-Thought** | Estratégia que induz o modelo a raciocinar passo a passo antes de responder. |
-| **Role Prompting** | Atribuição de uma persona ou papel específico ao modelo no prompt. |
-| **Hallucination** | Quando o modelo gera informações falsas ou inventadas com aparência de verdade. |
-| **Context Window** | Limite máximo de tokens que um modelo pode processar em uma única interação. |
-| **System Prompt** | Instrução inicial que define o comportamento geral do modelo em uma conversa. |
-| **Fine-tuning** | Processo de retreinar um modelo em dados específicos (diferente de prompting). |
-| **Inference** | O processo de o modelo gerar uma resposta a partir de um prompt. |
-| **Grounding** | Técnica de fornecer fontes/documentos ao modelo para basear suas respostas em fatos verificáveis. |
-| **RAG (Retrieval-Augmented Generation)** | Arquitetura que combina busca em base de conhecimento com geração de texto para respostas mais precisas. |
+| **Cadeia de Pensamento (Chain-of-Thought)** | Técnica que incentiva a IA a mostrar o raciocínio passo a passo antes de chegar à conclusão final, melhorando o desempenho em tarefas lógicas. |
+| **Encadeamento de Prompts (Prompt Chaining)** | Processo de dividir uma tarefa complexa em várias etapas menores, onde o resultado de um comando é usado como entrada para o comando seguinte. |
+| **Engenharia de Prompts** | Campo de estudo focado em desenvolver, otimizar e refinar comandos para utilizar modelos de linguagem de maneira eficiente e produtiva. |
+| **Few-shot Prompting** | Método que consiste em fornecer ao modelo alguns exemplos práticos de como realizar uma tarefa antes de pedir que ele execute o comando final. |
+| **Grandes Modelos de Linguagem (LLMs)** | Sistemas de IA treinados com volumes gigantescos de texto para entender, processar e gerar linguagem humana natural. |
+| **Prompt** | O texto, pergunta ou instrução inicial que você envia para o modelo de IA para orientar o que ele deve gerar como resposta. |
+| **Prompt de Sistema (System Prompt)** | Instrução de alto nível que define a personalidade, as regras básicas e o comportamento geral que a IA deve adotar durante toda a conversa. |
+| **Prompting de Atuação (Role Prompting)** | Técnica de atribuir um papel ou cargo específico à IA, como pedir para ela agir como um "professor de história" ou "recrutador". |
+| **RAG (Retrieval Augmented Generation)** | Método que permite que a IA consulte bases de conhecimento externas e específicas para fornecer respostas mais precisas e atualizadas. |
+| **Zero-shot Prompting** | Consiste em dar uma ordem direta à IA sem fornecer nenhum exemplo anterior, esperando que ela resolva a tarefa apenas com seu conhecimento prévio. |
+
+#### 🔴 Segurança e Vulnerabilidades
+
+| Termo | Definição |
+|-------|-----------|
+| **Adversarial Prompting** | Técnicas de ataque que tentam enganar o modelo para que ele ignore suas instruções originais ou gere respostas perigosas e inadequadas. |
+| **Alucinação (Hallucination)** | Ocorre quando a IA gera informações que parecem convincentes e corretas, mas que são, na verdade, inventadas ou factualmente erradas. |
+| **Injeção de Prompt (Prompt Injection)** | Ataque onde o usuário insere comandos maliciosos para tentar "sequestrar" ou mudar o comportamento original definido para a IA. |
+| **Jailbreaking** | Tentativa deliberada de contornar as regras de segurança e os filtros da IA para fazê-la responder a perguntas proibidas ou realizar tarefas restritas. |
+| **Vazamento de Prompt (Prompt Leaking)** | Ataque que tenta forçar a IA a revelar suas instruções internas e secretas que não deveriam ser vistas pelo usuário final. |
 
 ---
 
