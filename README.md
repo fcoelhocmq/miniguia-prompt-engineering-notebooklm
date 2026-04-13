@@ -187,9 +187,19 @@ O NotebookLM gerou os 15 termos em ordem alfabética, todos em português, com l
 
 **Experimento:** Utilizei a funcionalidade **"Audio Overview"** do NotebookLM para gerar um podcast de revisão sobre o conteúdo do caderno.
 
-**Resultado:** O podcast de ~21 minutos cobriu os principais conceitos de forma conversacional entre dois apresentadores simulados. Excelente para revisar o conteúdo enquanto se faz outra atividade.
+> 🎙️ *Arquivo gerado: `A_mecânica_real_da_engenharia_de_prompt.m4a`*
 
-**⚠️ Limitação observada:** O áudio gerado está em inglês por padrão. Para contornar, instrua o NotebookLM em português no campo de customização do podcast antes de gerar.
+**✅ Resultado real obtido:**
+O podcast de **~21 minutos** cobriu os principais conceitos em formato conversacional entre dois apresentadores simulados — um fazendo perguntas e o outro respondendo, simulando uma entrevista de divulgação técnica. O áudio percorreu desde a definição de Engenharia de Prompts até técnicas como Chain-of-Thought e boas práticas de uso profissional.
+
+O formato é excelente para **revisão passiva**: é possível absorver o conteúdo enquanto se realiza outra atividade (transporte, exercício, tarefas domésticas).
+
+**🔄 Diferença em relação ao estimado:** A duração real foi de **~21 minutos** — significativamente maior que os ~8 minutos estimados inicialmente. Isso indica que o NotebookLM gerou uma cobertura mais abrangente do que o esperado, provavelmente por conta do volume de conteúdo das 5 fontes carregadas.
+
+**⚠️ Limitação observada:** O áudio é gerado em **inglês por padrão**. Para obter o podcast em português, é necessário instruir o NotebookLM explicitamente no campo de customização antes de gerar — por exemplo: *"Gere o podcast inteiramente em português brasileiro, com linguagem acessível para iniciantes."*
+
+**💡 Aprendizado:** O Audio Overview funciona melhor como ferramenta de **revisão**, não de primeiro contato. Recomenda-se usá-lo após já ter lido as fontes e feito as sessões de perguntas — assim o ouvido reconhece os conceitos e a retenção é maior. Para estudantes com rotina corrida, é um diferencial real de produtividade.
+
 
 ---
 
