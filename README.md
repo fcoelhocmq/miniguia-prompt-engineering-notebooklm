@@ -364,7 +364,7 @@ recursos sugeridos das fontes e uma atividade prática por semana.
 ## 🛠️ Stack e Ferramentas Utilizadas
 
 - **[NotebookLM — Caderno do Projeto](https://notebooklm.google.com/notebook/2f77922a-dc32-4de0-a1f8-bfc6645f3d8a)** — Caderno temático com todas as fontes e sessões deste projeto
-- **[GitHub]([https://github.com](https://github.com/fcoelhocmq/miniguia-prompt-engineering-notebooklm.git))** — Repositório e portfólio do projeto
+- **[GitHub]([https://github.com](https://github.com/fcoelhocmq/miniguia-prompt-engineering-notebooklm.git)** — Repositório e portfólio do projeto
 - **Markdown** — Formatação da documentação
 
 
