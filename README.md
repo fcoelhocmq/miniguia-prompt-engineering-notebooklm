@@ -364,38 +364,12 @@ recursos sugeridos das fontes e uma atividade prática por semana.
 ## 🛠️ Stack e Ferramentas Utilizadas
 
 - **[NotebookLM — Caderno do Projeto](https://notebooklm.google.com/notebook/2f77922a-dc32-4de0-a1f8-bfc6645f3d8a)** — Caderno temático com todas as fontes e sessões deste projeto
-- **[GitHub](https://github.com)** — Repositório e portfólio do projeto
+- **[GitHub]([https://github.com](https://github.com/fcoelhocmq/miniguia-prompt-engineering-notebooklm.git))** — Repositório e portfólio do projeto
 - **Markdown** — Formatação da documentação
 
 
 ---
 
-## 🚀 Como Reproduzir Este Projeto
-
-1. Acesse o [NotebookLM](https://notebooklm.google.com) com sua conta Google
-2. Clique em **"New Notebook"** e dê o nome: `Engenharia de Prompts - Da Teoria à Prática`
-3. Adicione as 5 fontes listadas na seção de Curadoria (via link ou upload de PDF)
-4. Aguarde o NotebookLM processar as fontes
-5. Utilize os prompts da seção **"Engenharia de Prompts e Cicatrizes"** como ponto de partida
-6. Explore a funcionalidade **"Audio Overview"** para gerar um podcast de revisão
-7. Documente seus próprios aprendizados e dificuldades!
-
----
-
-## 📈 Próximos Passos
-
-- [ ] Estudar técnicas avançadas: Tree of Thought e ReAct
-- [ ] Criar prompts específicos para área de Dados
-- [ ] Explorar Prompt Injection e questões de segurança
-- [ ] Desenvolver um prompt template para projetos profissionais reais
-
----
-
-## 🤝 Contribuições
-
-Este é um projeto de aprendizado pessoal, mas sugestões são bem-vindas! Abra uma *issue* ou envie um *pull request*.
-
----
 
 ## 📄 Licença
 
